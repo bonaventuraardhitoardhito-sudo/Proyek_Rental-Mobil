@@ -1,4 +1,5 @@
 <?php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -12,7 +13,10 @@ if (isset($_POST['register'])) {
     $no_hp = $_POST['no_hp'];
     $password = md5($_POST['password']);
 
-    $cek = mysqli_query($conn, "SELECT * FROM customer WHERE email='$email'");
+    $cek = mysqli_query(
+        $conn,
+        "SELECT * FROM customer WHERE email='$email'"
+    );
 
     if (mysqli_num_rows($cek) > 0) {
 
@@ -34,10 +38,12 @@ if (isset($_POST['register'])) {
               </script>";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <title>Register Customer</title>
@@ -49,11 +55,8 @@ if (isset($_POST['register'])) {
            ========================================= */
 
         * {
-
             box-sizing: border-box;
-
             margin: 0;
-
             padding: 0;
         }
 
@@ -99,17 +102,14 @@ if (isset($_POST['register'])) {
         @keyframes backgroundMove {
 
             0% {
-
                 background-position: 0% 50%;
             }
 
             50% {
-
                 background-position: 100% 50%;
             }
 
             100% {
-
                 background-position: 0% 50%;
             }
         }
@@ -185,17 +185,14 @@ if (isset($_POST['register'])) {
         @keyframes purpleMove {
 
             0% {
-
                 background-position: 0% 50%;
             }
 
             50% {
-
                 background-position: 100% 50%;
             }
 
             100% {
-
                 background-position: 0% 50%;
             }
         }
@@ -284,17 +281,14 @@ if (isset($_POST['register'])) {
         @keyframes floatOne {
 
             0% {
-
                 transform: translate(0, 0);
             }
 
             50% {
-
                 transform: translate(30px, -25px);
             }
 
             100% {
-
                 transform: translate(0, 0);
             }
         }
@@ -303,17 +297,14 @@ if (isset($_POST['register'])) {
         @keyframes floatTwo {
 
             0% {
-
                 transform: translate(0, 0);
             }
 
             50% {
-
                 transform: translate(-35px, 25px);
             }
 
             100% {
-
                 transform: translate(0, 0);
             }
         }
@@ -347,17 +338,14 @@ if (isset($_POST['register'])) {
         @keyframes floatFour {
 
             0% {
-
                 transform: translate(0, 0);
             }
 
             50% {
-
                 transform: translate(-20px, -20px);
             }
 
             100% {
-
                 transform: translate(0, 0);
             }
         }
@@ -518,17 +506,14 @@ if (isset($_POST['register'])) {
         @keyframes iconFloat {
 
             0% {
-
                 transform: translateY(0);
             }
 
             50% {
-
                 transform: translateY(-7px);
             }
 
             100% {
-
                 transform: translateY(0);
             }
         }
@@ -633,12 +618,10 @@ if (isset($_POST['register'])) {
         @keyframes roadMove {
 
             from {
-
                 background-position: 0 0;
             }
 
             to {
-
                 background-position: -75px 0;
             }
         }
@@ -834,13 +817,11 @@ if (isset($_POST['register'])) {
 
 
         .wheel-left {
-
             left: 12px;
         }
 
 
         .wheel-right {
-
             right: 12px;
         }
 
@@ -848,12 +829,10 @@ if (isset($_POST['register'])) {
         @keyframes wheelSpin {
 
             from {
-
                 transform: rotate(0deg);
             }
 
             to {
-
                 transform: rotate(360deg);
             }
         }
@@ -1097,7 +1076,7 @@ if (isset($_POST['register'])) {
 
 
         /* =========================================
-           BUTTON
+           BUTTON REGISTER
            ========================================= */
 
         .btn {
@@ -1145,6 +1124,107 @@ if (isset($_POST['register'])) {
         .btn:active {
 
             transform: translateY(0);
+        }
+
+
+        /* =========================================
+           GOOGLE REGISTER
+           ========================================= */
+
+        .or-divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 16px 0;
+
+            color: #a0a6b0;
+
+            font-size: 11px;
+        }
+
+
+        .or-divider::before,
+        .or-divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #e1e4e8;
+        }
+
+
+        .google-btn {
+
+            width: 100%;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            background: #ffffff;
+
+            color: #303030;
+
+            border: 1px solid #dce1e8;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.25s;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .google-btn:hover {
+
+            transform: translateY(-2px);
+
+            border-color: #b9bec7;
+
+            box-shadow:
+                0 7px 18px rgba(0, 0, 0, 0.13);
+        }
+
+
+        .google-icon {
+
+            width: 22px;
+
+            height: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: #4285F4;
         }
 
 
@@ -1622,6 +1702,29 @@ if (isset($_POST['register'])) {
                 </button>
 
 
+                <!-- =================================
+                     GOOGLE REGISTER
+                     ================================= -->
+
+                <div class="or-divider">
+
+                    <span>atau</span>
+
+                </div>
+
+
+                <a
+                    href="google-login.php?from=register"
+                    class="google-btn"
+                >
+
+                    <span class="google-icon">G</span>
+
+                    <span>Daftar dengan Google</span>
+
+                </a>
+
+
             </form>
 
 
@@ -1712,6 +1815,7 @@ if (isset($_POST['register'])) {
                 "#2ecc71";
 
             konfirmasi.setCustomValidity("");
+
         }
 
     }
@@ -1732,7 +1836,8 @@ if (isset($_POST['register'])) {
         "input",
         cekPassword
     );
-    
+
+
     /* =========================================
        VALIDASI FORM
        ========================================= */
@@ -1749,6 +1854,7 @@ if (isset($_POST['register'])) {
                 event.preventDefault();
 
                 form.reportValidity();
+
             }
 
         }
@@ -1758,4 +1864,5 @@ if (isset($_POST['register'])) {
 
 
 </body>
+
 </html>
